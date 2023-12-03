@@ -1,0 +1,43 @@
+<!DOCTYPE html lang= "en">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Digimon: Virtual Pet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header-main">
+        <div>
+                <img src="Logo.png" alt="Digimon VPet Logo" class="logo">
+        </div>
+        <div class="labels">
+            <h1>Digimon: Virtual Pet</h1>
+        </div>
+        <!--Login bar needs functionality. Use JS.-->
+        <nav class="navbar">
+            <div class="labels">
+                <h3>Login: </h3>
+            </div>
+            <div class="login">
+
+                <input type="text" id="username" name="username" minlength="6" maxlength="24" size="14" placeholder="Username:" class="username">
+
+                <input type="password" id="password" name="password" minlength="8" maxlength="32" size="14" placeholder="Password:" class="password">
+                <button id="submit" class="sign-in-button">Sign In</button>
+                <a href="accountCreation.html">Create an Account</a>
+            </div>
+        </nav>
+    </header>
+    <!--Nav bar for inventory, area select, training, and bestiary -->
+    <div class="world-nav"></div>
+    <!--Where you see your digimon and its info, info should include stats such as strength & defense, HP, cleanliness, and hunger-->
+    <div class="sidebar">
+        <div class="monster-view"></div>
+        <div class="monster-info"></div>
+    </div>
+    <!--whatever you selected in the world-nav should display here. If nothing was selected, a landing page should be shown.-->
+    <div class="main-content">
+    </div>
+    <script href="app.js"></script>
+</body>
+</html>

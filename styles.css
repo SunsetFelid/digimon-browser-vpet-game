@@ -1,0 +1,69 @@
+body{
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-main{
+    background-color: rgb(212, 78, 78);
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    width: 120vw;
+    height: 120px;
+    z-index: 2;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.logo{
+    width: 100px;
+    padding: 5px;
+}
+.navbar{
+    position: fixed;
+    z-index: 15;
+    top: .9rem;
+    right: .3rem;
+    display: flex;
+}
+.labels{
+    color: gold;
+}
+.login{
+    padding: 3px;
+    margin: 8px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+.username, .password{
+    background-color: rgb(76, 7, 7);
+    color: gold;
+}
+.username::placeholder, .password::placeholder{
+    color: goldenrod;
+} 
+.sign-in-button{
+    margin: 4px;
+    background-color:rgb(169, 49, 49);
+    color: gold;
+    border-style: none;
+    border-bottom: 3px solid rgb(58, 17, 17);
+}
+.account-creation{
+    background-color:rgb(169, 49, 49);
+    color: gold;
+    border-radius: 15px;
+    width: 400px;
+    height: 360px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.account-creation-ul{
+    list-style-type: none;
+}
