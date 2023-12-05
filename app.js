@@ -14,13 +14,12 @@ class user {
         this.digimon = '';
         }
     }
-}
 //Account creation system
 //Validate input
-if (casPassCreate !=== casPassConfirm){
+if (casPassCreate !== casPassConfirm){
     alert('Passwords do not match.')
 }
-if (casEmail !=== casEmailConfirm){
+if (casEmail !== casEmailConfirm){
     alert('Emails do not match.')
 }
 
@@ -33,14 +32,14 @@ function accountCreate(classes){
     let casEmail = document.getElementsById('email');
     let casEmailConfirm = document.getElementsById('email-confirm');
     //validate input
-    //make bettter later!
+    //make better later!
     if (casPassCreate.value !== casPassConfirm.value || casEmail.value !== casEmailConfirm){
         alert('email or password does not match.');
     } else {
         username = casUsernameCreate.value;
         password = casPassCreate.value;
         email = casEmail.value;
-        create new user(username, password, email);
+         new user(username, password, email);
         
     }
 };
@@ -59,7 +58,7 @@ function validateInput(classes){
         password = "";
     }
 }
-function loginform()
+function loginForm()
 //event listener for account creation submission
 submitButton = document.addEventListener('ac-submit', (e) => {
 
@@ -73,7 +72,7 @@ loginButton.addEventListener('login-button', (e) => {
 
 //Monster archetypes (the monsters hatch from eggs, and evolve as they grow)
 const digitype = ['Virus', 'Vaccine', 'Null'];
-const digistate = ['Baby','Rookie','Mega']
+const level = ['Baby','Rookie','Mega']
 const babyNames = ['Botamon', 'Pabumon', 'Poyomon'];
 const rookieNames = ['Agumon', 'Gabumon', 'Patamon', 'Renamon', 'Lopmon', 'Tentamon'];
 const megaNames = ['Wargreymon', 'Weregarurumon', 'Angemon', 'Jijimon', 'Seraphimon', 'Beelzemon', 'MegaKabuterimon'];
@@ -85,14 +84,14 @@ class digimon{
         let hp = [20-26];
         let clean = 100;
         let hunger = 100;
-        this.name: random(babyNames);
-        this.digitype: random(digitype);
-        this.digistate: digistate[0];
-        this.str: random(str);
-        this.def: random(def);
-        this.hp: random(hp);
-        this.clean: 100;
-        this.hunger: 100;
+        this.name = random(babyNames);
+        this.digitype = random(digitype);
+        this.digistate = level[0];
+        this.str = random(str);
+        this.def = random(def);
+        this.hp = random(hp);
+        this.clean = 100;
+        this.hunger = 100;
     }
 }
 //each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
