@@ -8,20 +8,10 @@ const submitButton = document.getElementsById('ac-submit');
 //Account Constructor
 class user {
     constructor(){
-        const digiegg = ["Botamon","Punimon","Pabumon"]
-        var digimon ={
-            name: random(digiegg);
-            str = [0-9],
-            def = [0-9],
-            hp = 20,
-            clean = 100,
-            hunger = 100
-        }
         this.username = ''; 
         this.password = '';
         this.email = '';
-        this.createDigimon = function(...){
-        user.digimon.push(new digimon());
+        this.digimon = '';
         }
     }
 }
@@ -82,9 +72,29 @@ loginButton.addEventListener('login-button', (e) => {
 //login storage (encryption required!)
 
 //Monster archetypes (the monsters hatch from eggs, and evolve as they grow)
-
+const digitype = ['Virus', 'Vaccine', 'Null'];
+const digistate = ['Baby','Rookie','Mega']
+const babyNames = ['Botamon', 'Pabumon', 'Poyomon'];
+const rookieNames = ['Agumon', 'Gabumon', 'Patamon', 'Renamon', 'Lopmon', 'Tentamon'];
+const megaNames = ['Wargreymon', 'Weregarurumon', 'Angemon', 'Jijimon', 'Seraphimon', 'Beelzemon', 'MegaKabuterimon'];
 //each monster has unique stats (strength, defense, HP) that are raised by training
-
+class digimon{
+    constructor(){
+        let str = [0-9];
+        let def = [0-9];
+        let hp = [20-26];
+        let clean = 100;
+        let hunger = 100;
+        this.name: random(babyNames);
+        this.digitype: random(digitype);
+        this.digistate: digistate[0];
+        this.str: random(str);
+        this.def: random(def);
+        this.hp: random(hp);
+        this.clean: 100;
+        this.hunger: 100;
+    }
+}
 //each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
 // hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
 
