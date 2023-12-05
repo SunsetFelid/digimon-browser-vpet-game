@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="background-image"></div>
     <header class="header-main">
         <div>
                 <img src="Logo.png" alt="Digimon VPet Logo" class="logo">
@@ -18,14 +19,14 @@
             <div class="labels">
                 <h3>Login: </h3>
             </div>
-            <div class="login">
+            <form class="login">
 
-                <input type="text" id="username" name="username" minlength="6" maxlength="24" size="14" placeholder="Username:" class="username">
+                <input type="text" name="username" minlength="6" maxlength="24" size="14" placeholder="Username:" class="username">
 
-                <input type="password" id="password" name="password" minlength="8" maxlength="32" size="14" placeholder="Password:" class="password">
-                <button id="submit" class="sign-in-button">Sign In</button>
+                <input type="password" name="password" minlength="8" maxlength="32" size="14" placeholder="Password:" class="password">
+                <button type="submit" class="login-button">Sign In</button>
                 <a href="accountCreation.html">Create an Account</a>
-            </div>
+            </form>
         </nav>
     </header>
     <!--Nav bar for inventory, area select, training, and bestiary -->

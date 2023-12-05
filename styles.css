@@ -1,5 +1,6 @@
 body{
-    background-color: coral;
+    background-image: url('2c1043bc002852d8ad422035b1469b64.jpg');
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +45,7 @@ body{
 .username::placeholder, .password::placeholder{
     color: goldenrod;
 } 
-.sign-in-button{
+.login-button{
     margin: 4px;
     background-color:rgb(169, 49, 49);
     color: gold;
@@ -66,4 +67,10 @@ body{
 }
 .account-creation-ul{
     list-style-type: none;
+}
+.ac-submit{
+    margin: 4px;
+    color: gold;
+    border-style: none;
+    background-color:rgb(58, 17, 17);
 }
