@@ -81,17 +81,12 @@ const megaNames = ['Wargreymon', 'Weregarurumon', 'Angemon', 'Jijimon', 'Seraphi
 //each monster has unique stats (strength, defense, HP) that are raised by training
 class digimon{
     constructor(){
-        let str = [0-9];
-        let def = [0-9];
-        let hp = [20-26];
-        let clean = 100;
-        let hunger = 100;
-        this.name = random(babyNames);
-        this.digitype = random(digitype);
-        this.digistate = level[0];
-        this.str = random(str);
-        this.def = random(def);
-        this.hp = random(hp);
+        this.name = babyNames[getRandomInt(3)];
+        this.digitype = digitype[getRandomInt(3)];
+        this.level = level[0];
+        this.str = getRandomInt(10);
+        this.def = getRandomInt(10);
+        this.hp = 20 + getRandomInt(6);
         this.clean = 100;
         this.hunger = 100;
     }
