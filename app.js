@@ -58,7 +58,9 @@ function validateInput(classes){
         password = "";
     }
 }
-function loginForm()
+function loginForm(){
+    
+}
 //event listener for account creation submission
 submitButton = document.addEventListener('ac-submit', (e) => {
 
