@@ -78,6 +78,7 @@ const level = ['Baby','Rookie','Mega']
 const babyNames = ['Botamon', 'Pabumon', 'Poyomon'];
 const rookieNames = ['Agumon', 'Gabumon', 'Patamon', 'Renamon', 'Lopmon', 'Tentamon'];
 const megaNames = ['Wargreymon', 'Weregarurumon', 'Angemon', 'Jijimon', 'Seraphimon', 'Beelzemon', 'MegaKabuterimon'];
+
 //each monster has unique stats (strength, defense, HP) that are raised by training
 class digimon{
     constructor(){
@@ -89,9 +90,36 @@ class digimon{
         this.hp = 20 + getRandomInt(6);
         this.clean = 100;
         this.hunger = 100;
+        this.failure = 0;
+        this.victory = 0;
     }
 }
-//each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
-// hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
 
+//each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
+//time (by half hours)
+let seconds = 1799;
+function timer(){
+    seconds--;
+}
+function foodTimer(){
+    if (seconds > 0){
+        setTimeout(timer, 1000);
+    } else {
+        user.digimon.hunger -= 2;
+        seconds = 1799;
+    }
+}
+function messTimer(){
+    if (seconds > 0){
+        setTimeout(tick, 1000);
+    } else { 
+        user.digimon.clean--;
+    }
+}
+
+// hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
+if (user.digimon.hunger <= 20 || user.digimon.clean <=20){
+    user.digimon.failure += 1;
+}
 //6 areas to explore and fight other monsters, victories affect evolution, defeats count as a husbandry failure and affect evolution
+//battle randomizer (you should be fighting things at your own level)
