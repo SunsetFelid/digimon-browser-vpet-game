@@ -49,6 +49,7 @@ function validateInput(classes){
     //variables
     let username = document.getElementsById('username');
     let password = document.getElementsById('password');
+
     //validate input
     if(username.value || password.value == ''){
         alert('Username or password fields are empty.');
@@ -70,6 +71,7 @@ loginButton.addEventListener('login-button', (e) => {
     e.preventDefault();
     validateInput('username', 'password');
 });
+
 //login storage (encryption required!)
 
 //Monster archetypes (the monsters hatch from eggs, and evolve as they grow)
@@ -89,7 +91,7 @@ class digimon{
         this.def = getRandomInt(10);
         this.hp = 20 + getRandomInt(6);
         this.clean = 100;
-        this.hunger = 100;
+        this.hunger = 60;
         this.failure = 0;
         this.victory = 0;
     }
