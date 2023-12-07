@@ -59,7 +59,7 @@ if (user.digimon.hunger <= 20 || user.digimon.clean <=20){
     user.digimon.failure += 1;
 }
 function digimonDies(){
-if (user.digimon.hunger || user.digimon.clean === 0){
+if (user.digimon.hunger || user.digimon.clean <= 0){
     alert('Your Digimon has Died!');
     let gravestone = user.digimon.name.toString();
     let lastAge = user.digimon.age.toString() + ' days';
@@ -67,5 +67,4 @@ if (user.digimon.hunger || user.digimon.clean === 0){
     delete user.digimon;
     }
 }
-//1 area to explore and fight other monsters, victories affect evolution, defeats count as a husbandry failure and affect evolution
-//battle randomizer (you should be fighting things at your own level)
+//1 area to explore, has a place to get food & a place to train
