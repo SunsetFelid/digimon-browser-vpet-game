@@ -11,7 +11,9 @@ class user {
         this.username = ''; 
         this.password = '';
         this.email = '';
-        this.digimon = '';
+        this.digimon = {};
+        this.inventory = [];
+        this.graveyard = [];
         }
     }
 //Account creation system
@@ -90,6 +92,7 @@ class digimon{
         this.str = getRandomInt(10);
         this.def = getRandomInt(10);
         this.hp = 20 + getRandomInt(6);
+        this.age = 0;
         this.clean = 100;
         this.hunger = 60;
         this.failure = 0;
@@ -122,6 +125,15 @@ function messTimer(){
 // hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
 if (user.digimon.hunger <= 20 || user.digimon.clean <=20){
     user.digimon.failure += 1;
+}
+function digimonDies(){
+if (user.digimon.hunger || user.digimon.clean === 0){
+    alert('Your Digimon has Died!');
+    let gravestone = user.digimon.name.toString();
+    let lastAge = user.digimon.age.toString() + ' days';
+    user.graveyard.push([gravestone, lastAge]);
+    delete user.digimon;
+    }
 }
 //6 areas to explore and fight other monsters, victories affect evolution, defeats count as a husbandry failure and affect evolution
 //battle randomizer (you should be fighting things at your own level)
