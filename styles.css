@@ -81,7 +81,7 @@ body{
 .button:active{
     background-color: gold;
     color: rgb(58, 17, 17);
-    border-bottom: 3px solid rgb(212, 78, 78);
+    border-bottom: 3px solid rgb(76, 7, 7);
 }
 .main-content{
     width: 400px;
