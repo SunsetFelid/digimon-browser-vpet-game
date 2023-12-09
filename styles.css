@@ -1,9 +1,5 @@
 body{
-<<<<<<< HEAD
     background-image: url('images/2c1043bc002852d8ad422035b1469b64.jpg');
-=======
-    background-image: url('./images/2c1043bc002852d8ad422035b1469b64.jpg');
->>>>>>> 22c661be12a4de7d17aea9d3695dab963174bbf2
     background-size: cover;
     display: flex;
     justify-content: center;
