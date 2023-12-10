@@ -59,7 +59,7 @@ function hungry(){
     for (i = 15; i <= 0; i--){
         setTimeout(i, 1000);
     }
-        player.digimon.hunger -= 2;
+        player.digimon.hunger -= 10;
         i = 15;
         if (player.digimon.hunger <= 40){
             mainContent.firstChild.className = "digimon-hungry";
@@ -69,7 +69,7 @@ function dirty(){
     for (i = 15; i <= 0; i--){
         setTimeout(i, 1000);
     }
-        player.digimon.clean--;
+        player.digimon.clean -= 8;
         i = 15;
         if (player.digimon.clean <= 40){
             mainContent.firstChild.className = "digimon-dirty";
