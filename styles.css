@@ -95,13 +95,25 @@ body{
     background-image: url('images/backgroundimage.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
 }
 .digimon{
     width: 256px;
     height: 256px;
-    background-image: url('images/Botamon_Static.png');
+    background-image: url('images/Botamon_Idle.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.digimon-hungry{
+    width: 256px;
+    height: 256px;
+    background-image: url('images/Botamon_Hungry.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.digimon-dirty{
+    width: 256px;
+    height: 256px;
+    background-image: url('images/Botamon_Dirty.gif');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -111,4 +123,14 @@ body{
     background-image: url('images/Digitama.png');
     background-size: cover;
     background-repeat: no-repeat;
+}
+.notifications{
+    width: 97.4%;
+    align-self: center;
+    height: 30px;
+    padding: 5px;
+    background-color: rgb(149, 47, 47);
+    border-top: 3px solid rgb(58, 17, 17);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }

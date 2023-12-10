@@ -7,19 +7,12 @@ const feedBtn = document.getElementById('feed');
 const cleanBtn = document.getElementById('clean');
 const graveBtn = document.getElementById('grave');
 const egg = document.querySelector('.egg');
+const digimonEl = document.querySelector('.digimon');
 //Monster archetypes (the monsters hatch from eggs, and evolve as they grow)
 const type = ['Virus', 'Vaccine', 'Null'];
 const level = ['Baby','Rookie','Mega']
 //const rookieNames = ['Agumon', 'Gabumon', 'Patamon', 'Renamon', 'Lopmon', 'Tentamon'];
 //const megaNames = ['Wargreymon', 'Weregarurumon', 'Angemon', 'Jijimon', 'Seraphimon', 'Beelzemon', 'MegaKabuterimon'];
-
-//code below from MDN
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-  }
-  //code above from MDN
 
 //each monster has unique stats (strength, defense, HP) that are raised by training
 class digimon{
@@ -31,7 +24,7 @@ class digimon{
  //       this.def = getRandomInt(10);
  //       this.hp = 20 + getRandomInt(6);
         this.age = 0;
-        this.clean = 100;
+        this.clean = 39;
         this.hunger = 60;
  //       this.failure = 0;
  //       this.victory = 0;
@@ -56,8 +49,8 @@ function digiEgg(){
 function hatch(e) {
     if (e.target.className === 'egg') {
         player.digimon = new digimon();
-        alert('Your egg hatched into Botamon!');
         e.target.className = 'digimon'
+        alert('Your egg hatched into Botamon!');
     }
 }
 //each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
@@ -68,6 +61,9 @@ function hungry(){
     }
         player.digimon.hunger -= 2;
         i = 15;
+        if (player.digimon.hunger <= 40){
+            mainContent.firstChild.className = "digimon-hungry";
+        }
 }
 function dirty(){
     for (i = 15; i <= 0; i--){
@@ -75,10 +71,28 @@ function dirty(){
     }
         player.digimon.clean--;
         i = 15;
+        if (player.digimon.clean <= 40){
+            mainContent.firstChild.className = "digimon-dirty";
+    }
 }
-
-
 // hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
+function feedDigimon(e){
+    if (player.digimon.hunger > 60){
+        alert('Botamon is not hungry!');
+    }   else if (player.digimon.hunger <= 60){
+        alert('Botamon: "Thanks for the food!"');
+        player.digimon.hunger += 40;
+    }
+}
+    
+function washDigimon(e){
+    if (player.digimon.clean > 60){
+        alert('Botamon is not that dirty!');
+    }   else if (player.digimon.clean <= 60) {
+        alert('Botamon: "Thanks for the washing me!"');
+        player.digimon.clean += 40;
+    }
+}
 if (player.digimon.hunger <= 20 || player.digimon.clean <=20){
     player.digimon.failure += 1;
 }
@@ -93,4 +107,6 @@ if (player.digimon.hunger || player.digimon.clean === 0){
     }
 }
 
-const eggClicker = egg.addEventListener('click', hatch)
+const eggClicker = egg.addEventListener('click', hatch);
+const feedClick = feedBtn.addEventListener('click', feedDigimon);
+const washClick = cleanBtn.addEventListener('click', washDigimon);
