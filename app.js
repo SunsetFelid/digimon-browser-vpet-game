@@ -6,7 +6,6 @@ const statsBtn = document.getElementById('stats');
 const feedBtn = document.getElementById('feed');
 const cleanBtn = document.getElementById('clean');
 const graveBtn = document.getElementById('grave');
-const eggclicker = document.addEventListener('click', hatch)
 //Monster archetypes (the monsters hatch from eggs, and evolve as they grow)
 const type = ['Virus', 'Vaccine', 'Null'];
 const level = ['Baby','Rookie','Mega']
@@ -40,19 +39,19 @@ const player = {
 
 function digiEgg(){
     while (mainContent.firstChild !== true){
-        alert('You got a digi-egg!')
+        alert('You got a digi-egg!');
         const myImage = document.createElement('img');
         myImage.className= 'egg';
         mainContent.appendChild(myImage);
     }   
-       hatch() {
-            alert('Your egg hatched into Botamon!')
-            player.digimon = new digimon();
-            const myDigimon = document.createElement('img');
-            myDigimon.className= 'digimon';
-            mainContent.removeChild('myImage');
-            mainContent.appendChild('myDigimon');
-        }
+}
+function hatch() {
+    player.digimon = new digimon;
+    alert('Your egg hatched into Botamon!');
+    const myDigimon = document.createElement('img');
+    myDigimon.className= 'digimon';
+    mainContent.removeChild('img');
+    mainContent.appendChild('myDigimon');
 }
 //each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
 //time (by half hours)
@@ -90,3 +89,5 @@ if (player.digimon.hunger || player.digimon.clean === 0){
     mainContent.removeChild('myDigimon')
     }
 }
+
+const eggClicker = egg.addEventListener('mousedown', hatch, true)
