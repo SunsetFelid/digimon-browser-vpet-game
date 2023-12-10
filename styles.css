@@ -32,6 +32,7 @@ body{
     font-weight: bolder;
     justify-self: flex-end;
     align-self: center;
+    padding: 10px;
 }
 .login{
     padding: 3px;
@@ -125,12 +126,19 @@ body{
     background-repeat: no-repeat;
 }
 .notifications{
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
     width: 97.4%;
     align-self: center;
-    height: 30px;
+    height: 70px;
     padding: 5px;
     background-color: rgb(149, 47, 47);
     border-top: 3px solid rgb(58, 17, 17);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+.audio{
+    padding: 5px;
+    margin: 5px;
 }
