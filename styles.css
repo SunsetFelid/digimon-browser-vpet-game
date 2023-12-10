@@ -89,9 +89,26 @@ body{
     padding-top: 10px;
     align-self:center;
     justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-image: url('images/backgroundimage.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+.digimon{
+    width: 256px;
+    height: 256px;
+    background-image: url('images/Botamon_Static.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.egg{
+    width: 100px;
+    height: 100px;
+    background-image: url('images/Digitama.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
