@@ -46,34 +46,29 @@ function digiEgg(){
     }   
 }
 function hatch() {
+    if (mainContent.firstChild.className = 'egg'){
     player.digimon = new digimon;
     alert('Your egg hatched into Botamon!');
-    const myDigimon = document.createElement('img');
-    myDigimon.className= 'digimon';
-    mainContent.removeChild('img');
-    mainContent.appendChild('myDigimon');
+    myImage.className= 'digimon';
+    }
 }
 //each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
 //time (by half hours)
-let seconds = 1799;
-function timer(){
-    seconds--;
-}
-function foodTimer(){
-    if (seconds > 0){
-        setTimeout(timer, 1000);
-    } else {
+function hungry(){
+    for (i = 15; i <= 0; i--){
+        setTimeout(i, 1000);
+    }
         player.digimon.hunger -= 2;
-        seconds = 1799;
-    }
+        i = 15;
 }
-function messTimer(){
-    if (seconds > 0){
-        setTimeout(tick, 1000);
-    } else { 
+function dirty(){
+    for (i = 15; i <= 0; i--){
+        setTimeout(i, 1000);
+    }
         player.digimon.clean--;
-    }
+        i = 15;
 }
+
 
 // hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
 if (player.digimon.hunger <= 20 || player.digimon.clean <=20){
@@ -90,4 +85,4 @@ if (player.digimon.hunger || player.digimon.clean === 0){
     }
 }
 
-const eggClicker = egg.addEventListener('mousedown', hatch, true)
+const eggClicker = egg.addEventListener('mousedown', hatch())
