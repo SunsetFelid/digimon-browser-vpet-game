@@ -7,3 +7,6 @@
 -	Blurred the background image (for copyright reasons) and created UI for the actual game part of the page.
 -	Added some art I had made in 2020 to act as the background for the part of the screen the digimon would be allowed to exist in.
 -	refactored time-relarted code in an attempt to simplify.
+-	did a debug session with Egor (Pillby).
+-	spent 4 hours on Dec 10 working on the code for feeding and cleaning the digimon. Added more sprites, but couldn't get them to trigger. Added music, for flair. 
+- there seems to be an issue with the time-related code. Needs fixing, but I'll be making the Stat screen and Graveyard screens first.
