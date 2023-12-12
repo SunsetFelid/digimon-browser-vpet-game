@@ -10,3 +10,4 @@
 -	did a debug session with Egor (Pillby).
 -	spent 4 hours on Dec 10 working on the code for feeding and cleaning the digimon. Added more sprites, but couldn't get them to trigger. Added music, for flair. 
 - there seems to be an issue with the time-related code. Needs fixing, but I'll be making the Stat screen and Graveyard screens first.
+- Made feeding and cleaning depreciate each other incrementally, Death works but doesn't erase the img div yet
