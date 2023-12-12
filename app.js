@@ -62,8 +62,17 @@ function hatch(e) {
     }
 */
 
-//each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
-//time (by half hours)
+//Death
+function digimonDies(){
+    if (player.digimon.hunger || player.digimon.clean === 0){
+        alert('Your Digimon has Died!');
+        let gravestone = player.digimon.name.toString();
+        let lastAge = player.digimon.age.toString() + ' days';
+        player.graveyard.push([gravestone, lastAge]);
+        delete player.digimon;
+        mainContent.removeChild('myImage')
+        }
+    }
 
 // hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
 function feedDigimon(e){
@@ -72,6 +81,10 @@ function feedDigimon(e){
     }   else if (player.digimon.hunger <= 60){
         alert('Botamon: "Thanks for the food!"');
         player.digimon.hunger += 40;
+        player.digimon.clean -= 40;
+        if (player.digimon.clean <= 0){
+            digimonDies();
+        }
     }
 }
     
@@ -81,19 +94,10 @@ function washDigimon(e){
     }   else if (player.digimon.clean <= 60) {
         alert('Botamon: "Thanks for the washing me!"');
         player.digimon.clean += 40;
-    }
-}
-if (player.digimon.hunger <= 20 || player.digimon.clean <=20){
-    player.digimon.failure += 1;
-}
-function digimonDies(){
-if (player.digimon.hunger || player.digimon.clean === 0){
-    alert('Your Digimon has Died!');
-    let gravestone = player.digimon.name.toString();
-    let lastAge = player.digimon.age.toString() + ' days';
-    player.graveyard.push([gravestone, lastAge]);
-    delete player.digimon;
-    mainContent.removeChild('myImage')
+        player.digimon.hunger -= 40;
+        if (player.digimon.hunger <= 0){
+            digimonDies();
+        }
     }
 }
 
