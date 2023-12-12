@@ -13,7 +13,6 @@ const type = ['Virus', 'Vaccine', 'Null'];
 const level = ['Baby','Rookie','Mega']
 //const rookieNames = ['Agumon', 'Gabumon', 'Patamon', 'Renamon', 'Lopmon', 'Tentamon'];
 //const megaNames = ['Wargreymon', 'Weregarurumon', 'Angemon', 'Jijimon', 'Seraphimon', 'Beelzemon', 'MegaKabuterimon'];
-
 //each monster has unique stats (strength, defense, HP) that are raised by training
 class digimon{
     constructor(){
@@ -48,33 +47,24 @@ function digiEgg(){
 }
 function hatch(e) {
     if (e.target.className === 'egg') {
+        console.log('starting hatch');
         player.digimon = new digimon();
-        e.target.className = 'digimon'
+        e.target.className = 'digimon';
         alert('Your egg hatched into Botamon!');
+        console.log('finish hatch');
     }
 }
+
+/*function hungry(){
+        player.digimon.hunger -= 5;
+        player.digimon.clean -= 4;
+        console.log(player.digimon.hunger);
+    }
+*/
+
 //each monster has hunger and cleanliness meters that are filled by feeding and bathing respectively,
 //time (by half hours)
-function hungry(){
-    for (i = 15; i <= 0; i--){
-        setTimeout(i, 1000);
-    }
-        player.digimon.hunger -= 10;
-        i = 15;
-        if (player.digimon.hunger <= 40){
-            mainContent.firstChild.className = "digimon-hungry";
-        }
-}
-function dirty(){
-    for (i = 15; i <= 0; i--){
-        setTimeout(i, 1000);
-    }
-        player.digimon.clean -= 8;
-        i = 15;
-        if (player.digimon.clean <= 40){
-            mainContent.firstChild.className = "digimon-dirty";
-    }
-}
+
 // hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
 function feedDigimon(e){
     if (player.digimon.hunger > 60){
