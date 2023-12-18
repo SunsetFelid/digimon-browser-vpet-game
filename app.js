@@ -1,19 +1,25 @@
 ///Monster raising game
 //needs:
+
 //HTML Collections
-const mainContent = document.getElementsByName('main-content');
+var mainContent = document.getElementsByName('main-content');
+const startBtn = document.getElementById('start');
 const statsBtn = document.getElementById('stats');
 const feedBtn = document.getElementById('feed');
 const cleanBtn = document.getElementById('clean');
+const playBtn = document.getElementById('play');
 const graveBtn = document.getElementById('grave');
-const egg = document.querySelector('.egg');
+const egg = document.getElementById('egg');
+var subtext = document.querySelector('.h4');
 const digimonEl = document.querySelector('.digimon');
+var gravestone = document.querySelector('.gravebtn');
+
 //Monster archetypes (the monsters hatch from eggs, and evolve as they grow)
 const type = ['Virus', 'Vaccine', 'Null'];
-const level = ['Baby','Rookie','Mega']
+const level = ['Baby','Rookie','Mega'];
 //const rookieNames = ['Agumon', 'Gabumon', 'Patamon', 'Renamon', 'Lopmon', 'Tentamon'];
 //const megaNames = ['Wargreymon', 'Weregarurumon', 'Angemon', 'Jijimon', 'Seraphimon', 'Beelzemon', 'MegaKabuterimon'];
-//each monster has unique stats (strength, defense, HP) that are raised by training
+
 class digimon{
     constructor(){
         this.name = "Botamon";
@@ -23,8 +29,9 @@ class digimon{
  //       this.def = getRandomInt(10);
  //       this.hp = 20 + getRandomInt(6);
         this.age = 0;
-        this.clean = 39;
-        this.hunger = 60;
+        this.clean = 50;
+        this.hunger = 50;
+        this.fun = 50;
  //       this.failure = 0;
  //       this.victory = 0;
     }
@@ -33,74 +40,91 @@ class digimon{
 //player data
 const player = {
         digimon: {},
-        graveyard: ''
+        graveyard: ['']
         }
 
-
+//egg appears
 function digiEgg(){
-    while (mainContent.firstChild !== true){
+    while (mainContent.firstChild.id !== 'egg'){
         alert('You got a digi-egg!');
         const myImage = document.createElement('img');
-        myImage.setAttribute(className, 'egg')
+        myImage.setAttribute('id', 'egg')
         mainContent.appendChild(myImage);
     }   
 }
+
+//egg hatches upon being clicked
 function hatch(e) {
-    if (e.target.className === 'egg') {
+    if (e.target.id === 'egg') {
         console.log('starting hatch');
         player.digimon = new digimon();
-        e.target.className = 'digimon';
+        e.target.id = 'digimon';
         alert('Your egg hatched into Botamon!');
         console.log('finish hatch');
     }
 }
 
-/*function hungry(){
-        player.digimon.hunger -= 5;
-        player.digimon.clean -= 4;
-        console.log(player.digimon.hunger);
-    }
-*/
-
 //Death
 function digimonDies(){
-    if (player.digimon.hunger || player.digimon.clean === 0){
+        console.log("death start");
         alert('Your Digimon has Died!');
-        let gravestone = player.digimon.name.toString();
-        let lastAge = player.digimon.age.toString() + ' days';
-        player.graveyard.push([gravestone, lastAge]);
+        let gravestat = 'Name: ' + player.digimon.name.toString() + ' Age: ' + player.digimon.age.toString() + 'days';
+
+        console.log(gravestat);
+        player.graveyard.push[gravestat];
+        console.log(player.graveyard.values);
         delete player.digimon;
-        mainContent.removeChild('myImage')
-        }
+        console.log('digimon deleted');
+        var mainCon = document.getElementById('digimon');
+        mainCon.setAttribute('id', 'gravebtn');
+        subtext.textContent = "Game Over";
+        console.log('death end');
     }
 
-// hunger and cleanliness meters being left low for too long is a husbandry failure and affects evolution
+// hunger, fun, and cleanliness meters shift, as each is filled, they drain each other.
 function feedDigimon(e){
     if (player.digimon.hunger > 60){
         alert('Botamon is not hungry!');
     }   else if (player.digimon.hunger <= 60){
         alert('Botamon: "Thanks for the food!"');
         player.digimon.hunger += 40;
-        player.digimon.clean -= 40;
-        if (player.digimon.clean <= 0){
+        player.digimon.clean -= 25;
+        player.digimon.fun -= 25;
+        if (player.digimon.clean <= 0 || player.digimon.fun <= 0){
             digimonDies();
         }
     }
 }
-    
+function playWithDigimon(e){
+    if (player.digimon.fun > 60){
+        alert('Botamon is not bored!');
+    }   else if (player.digimon.fun <= 60){
+        alert('Botamon: "Thanks for playing with me!"');
+        player.digimon.fun += 40;
+        player.digimon.clean -= 25;
+        player.digimon.hunger -=25;
+        if (player.digimon.clean <= 0 || player.digimon.hunger <= 0){
+            digimonDies();
+        }
+    }
+}
 function washDigimon(e){
     if (player.digimon.clean > 60){
         alert('Botamon is not that dirty!');
     }   else if (player.digimon.clean <= 60) {
         alert('Botamon: "Thanks for the washing me!"');
         player.digimon.clean += 40;
-        player.digimon.hunger -= 40;
-        if (player.digimon.hunger <= 0){
+        player.digimon.fun -= 25;
+        player.digimon.hunger -= 25;
+        if (player.digimon.hunger <= 0 || player.digimon.fun <= 0) {
             digimonDies();
         }
     }
 }
-
-const eggClicker = egg.addEventListener('click', hatch);
-const feedClick = feedBtn.addEventListener('click', feedDigimon);
-const washClick = cleanBtn.addEventListener('click', washDigimon);
+function init(){
+    const eggClick = egg.addEventListener('click', hatch);
+    const feedClick = feedBtn.addEventListener('click', feedDigimon);
+    const washClick = cleanBtn.addEventListener('click', washDigimon);
+    const playClick = playBtn.addEventListener('click', playWithDigimon);
+}
+init();
