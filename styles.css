@@ -97,7 +97,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-.digimon{
+#digimon{
     width: 256px;
     height: 256px;
     background-image: url('images/Botamon_Idle.gif');
@@ -118,7 +118,14 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-.egg{
+#gravebtn{
+    width: 200px;
+    height: 200px;
+    background-image: url('images/Gravestone.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#egg{
     width: 100px;
     height: 100px;
     background-image: url('images/Digitama.png');
