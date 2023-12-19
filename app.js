@@ -3,12 +3,12 @@
 
 //HTML Collections
 var mainContent = document.getElementsByName('main-content');
-const startBtn = document.getElementById('start');
-const statsBtn = document.getElementById('stats');
+//const startBtn = document.getElementById('start');
+//const statsBtn = document.getElementById('stats');
 const feedBtn = document.getElementById('feed');
 const cleanBtn = document.getElementById('clean');
 const playBtn = document.getElementById('play');
-const graveBtn = document.getElementById('grave');
+//const graveBtn = document.getElementById('grave');
 const egg = document.getElementById('egg');
 var subtext = document.querySelector('.h4');
 const digimonEl = document.querySelector('.digimon');
@@ -60,6 +60,7 @@ function hatch(e) {
         player.digimon = new digimon();
         e.target.id = 'digimon';
         alert('Your egg hatched into Botamon!');
+        subtext.textContent = 'Hint: Each stat drains the others in different amounts';
         console.log('finish hatch');
     }
 }
@@ -88,7 +89,7 @@ function feedDigimon(e){
     }   else if (player.digimon.hunger <= 60){
         alert('Botamon: "Thanks for the food!"');
         player.digimon.hunger += 40;
-        player.digimon.clean -= 25;
+        player.digimon.clean -= 20;
         player.digimon.fun -= 25;
         if (player.digimon.clean <= 0 || player.digimon.fun <= 0){
             digimonDies();
@@ -102,7 +103,7 @@ function playWithDigimon(e){
         alert('Botamon: "Thanks for playing with me!"');
         player.digimon.fun += 40;
         player.digimon.clean -= 25;
-        player.digimon.hunger -=25;
+        player.digimon.hunger -=20;
         if (player.digimon.clean <= 0 || player.digimon.hunger <= 0){
             digimonDies();
         }
@@ -114,7 +115,7 @@ function washDigimon(e){
     }   else if (player.digimon.clean <= 60) {
         alert('Botamon: "Thanks for the washing me!"');
         player.digimon.clean += 40;
-        player.digimon.fun -= 25;
+        player.digimon.fun -= 20;
         player.digimon.hunger -= 25;
         if (player.digimon.hunger <= 0 || player.digimon.fun <= 0) {
             digimonDies();
