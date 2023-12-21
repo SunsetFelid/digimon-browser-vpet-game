@@ -94,13 +94,13 @@ function digimonDies(){
 
     // hunger, fun, and cleanliness meters shift, as each is filled, they drain each other.
 function feedDigimon(e){
-    if (player.digimon.hunger > 60){
+    if (player.digimon.hunger > 64){
         alert('Botamon is not hungry!');
-    }   else if (player.digimon.hunger <= 60){
+    }   else if (player.digimon.hunger <= 64){
         alert('Botamon: "Thanks for the food!"');
         player.digimon.hunger += 43;
         player.digimon.clean -= 20;
-        player.digimon.fun -= 25;
+        player.digimon.fun -= 24;
         checkState();
         if (player.digimon.clean <= 0 || player.digimon.fun <= 0){
             digimonDies();
@@ -109,12 +109,12 @@ function feedDigimon(e){
 }
 
 function playWithDigimon(e){
-    if (player.digimon.fun > 60){
+    if (player.digimon.fun > 64){
         alert('Botamon is not bored!');
-    }   else if (player.digimon.fun <= 60){
+    }   else if (player.digimon.fun <= 64){
         alert('Botamon: "Thanks for playing with me!"');
         player.digimon.fun += 43;
-        player.digimon.clean -= 25;
+        player.digimon.clean -= 24;
         player.digimon.hunger -=20;
         checkState();
 
@@ -125,13 +125,13 @@ function playWithDigimon(e){
 }
 
 function washDigimon(e){
-    if (player.digimon.clean > 60){
+    if (player.digimon.clean > 64){
         alert('Botamon is not that dirty!');
-    }   else if (player.digimon.clean <= 60) {
+    }   else if (player.digimon.clean <= 64) {
         alert('Botamon: "Thanks for the washing me!"');
         player.digimon.clean += 43;
         player.digimon.fun -= 20;
-        player.digimon.hunger -= 25;
+        player.digimon.hunger -= 24;
         checkState();
 
         if (player.digimon.hunger <= 0 || player.digimon.fun <= 0) {
