@@ -12,14 +12,14 @@ body{
     top: 0rem;
     left: 0rem;
     width: 120vw;
-    height: 120px;
+    height: 20vh;
     z-index: 2;
     display: flex;
     padding: 0;
     margin: 0;
 }
 .logo{
-    width: 100px;
+    width: 5%;
     padding: 5px;
 
 }
@@ -34,25 +34,18 @@ body{
     align-self: center;
     padding: 10px;
 }
-.login{
-    padding: 3px;
-    margin: 8px;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-}
 .content{
     background-color: rgb(212, 78, 78);
-    width: 450px;
-    height: 400px;
+    width: 60vw;
+    height: 59vh;
     border-radius: 15px;
     display: flex;
     flex-flow: column nowrap;
 }
 .buttons{
     background-color: rgb(149, 47, 47);
-    width: 96.5%;
-    height: 10%;
+    width: 58.3vw;
+    height: 10vh;
     padding: 8px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -85,8 +78,8 @@ body{
     border-bottom: 3px solid rgb(76, 7, 7);
 }
 .main-content{
-    width: 400px;
-    height: 300px;
+    width: 60vw;
+    height: 55vh;
     padding-top: 10px;
     align-self:center;
     justify-self: center;
@@ -98,54 +91,50 @@ body{
     background-repeat: no-repeat;
 }
 #digimon{
-    width: 256px;
-    height: 256px;
+    width: 20vw;
+    height: 30vh;
     background-image: url('images/Botamon_Idle.gif');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 .digimon-hungry{
-    width: 256px;
-    height: 256px;
+    width: 20vw;
+    height: 30vh;
     background-image: url('images/Botamon_Hungry.gif');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 .digimon-dirty{
-    width: 256px;
-    height: 256px;
+    width: 20vw;
+    height: 30vh;
     background-image: url('images/Botamon_Dirty.gif');
     background-size: cover;
     background-repeat: no-repeat;
 }
 #gravebtn{
-    width: 200px;
-    height: 200px;
+    width: 20vw;
+    height: 15vh;
     background-image: url('images/Gravestone.png');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 #egg{
-    width: 100px;
-    height: 100px;
+    width: 11vw;
+    height: 15vh;
     background-image: url('images/Digitama.png');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 .notifications{
     display: flex;
     justify-content: center;
     align-items: space-evenly;
-    width: 97.4%;
+    width: 59vw;
     align-self: center;
-    height: 70px;
+    height: 13vh;
     padding: 5px;
     background-color: rgb(149, 47, 47);
     border-top: 3px solid rgb(58, 17, 17);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-}
-.audio{
-    padding: 5px;
-    margin: 5px;
 }
