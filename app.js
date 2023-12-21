@@ -65,6 +65,15 @@ function hatch(e) {
     }
 }
 
+function checkState(){
+    if (player.digimon.clean < player.digimon.hunger && player.digimon.clean < player.digimon.fun){
+        subtext.textContent = 'Botamon looks dirty.';
+    } else if (player.digimon.hunger < player.digimon.clean && player.digimon.hunger < player.digimon.fun) {
+        subtext.textContent = 'Botamon looks peckish.';
+    } else if (player.digimon.fun < player.digimon.hunger && player.digimon.fun < player.digimon.clean){
+        subtext.textContent = 'Botamon looks bored.'
+    }
+}
 //Death
 function digimonDies(){
         console.log("death start");
@@ -82,46 +91,55 @@ function digimonDies(){
         console.log('death end');
     }
 
-// hunger, fun, and cleanliness meters shift, as each is filled, they drain each other.
+
+    // hunger, fun, and cleanliness meters shift, as each is filled, they drain each other.
 function feedDigimon(e){
     if (player.digimon.hunger > 60){
         alert('Botamon is not hungry!');
     }   else if (player.digimon.hunger <= 60){
         alert('Botamon: "Thanks for the food!"');
-        player.digimon.hunger += 40;
+        player.digimon.hunger += 43;
         player.digimon.clean -= 20;
         player.digimon.fun -= 25;
+        checkState();
         if (player.digimon.clean <= 0 || player.digimon.fun <= 0){
             digimonDies();
         }
     }
 }
+
 function playWithDigimon(e){
     if (player.digimon.fun > 60){
         alert('Botamon is not bored!');
     }   else if (player.digimon.fun <= 60){
         alert('Botamon: "Thanks for playing with me!"');
-        player.digimon.fun += 40;
+        player.digimon.fun += 43;
         player.digimon.clean -= 25;
         player.digimon.hunger -=20;
+        checkState();
+
         if (player.digimon.clean <= 0 || player.digimon.hunger <= 0){
             digimonDies();
         }
     }
 }
+
 function washDigimon(e){
     if (player.digimon.clean > 60){
         alert('Botamon is not that dirty!');
     }   else if (player.digimon.clean <= 60) {
         alert('Botamon: "Thanks for the washing me!"');
-        player.digimon.clean += 40;
+        player.digimon.clean += 43;
         player.digimon.fun -= 20;
         player.digimon.hunger -= 25;
+        checkState();
+
         if (player.digimon.hunger <= 0 || player.digimon.fun <= 0) {
             digimonDies();
         }
     }
 }
+
 function init(){
     const eggClick = egg.addEventListener('click', hatch);
     const feedClick = feedBtn.addEventListener('click', feedDigimon);
